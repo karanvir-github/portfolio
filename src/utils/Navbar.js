@@ -1,8 +1,8 @@
 import { Nav } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
+
 function Navbar() {
     return (
-
         <Nav variant="pills">
             <Nav.Item>
                 <LinkContainer to="/">

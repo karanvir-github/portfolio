@@ -1,0 +1,43 @@
+.navbar .row {
+    margin: auto !important;
+}
+
+.navbar .row .nav-item {
+    padding: 0px 15px !important;
+}
+
+.content .row .photos {
+    width: 450px;
+    margin: auto;
+    padding-top: 50px;
+    padding-left: 0px !important;
+}
+
+.content .row {
+    margin: 0px !important;
+}
+
+
+.content .row .myself .heading {
+    padding-top: 35px;
+    padding-left: 0px !important;
+}
+
+.content .row .intro {
+    margin-right: 30%;
+    text-align: justify;
+}
+
+.content .row .highlights {
+    margin-right: 30%;
+    text-align: justify;
+}
+
+.content .row .links li {
+    list-style: none !important;
+}
+
+.content .row .links a {
+    padding: 0px 10px;
+    color: #000;
+}

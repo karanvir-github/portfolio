@@ -1,11 +1,12 @@
-import Navbar from './Navbar';
+import Navbar from '../utils/Navbar';
 
 function StudyBackground() {
     return (
-        <div className="container">
-            <Navbar />
-            <h1>Study Page</h1>
-        </div>
+        <section className="navbar">
+            <div className="row">
+                <Navbar />
+            </div>
+        </section>
     )
 }
 export default StudyBackground;
