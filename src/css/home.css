@@ -1,3 +1,7 @@
+body {
+    background-color: aliceblue !important;
+}
+
 .navbar .row {
     margin: auto !important;
 }
@@ -33,11 +37,8 @@
     text-align: justify;
 }
 
-.content .row .links li {
-    list-style: none !important;
-}
-
-.content .row .links a {
+.content .row .reachMe a {
+    font-size: 25px;
     padding: 0px 10px;
     color: #000;
 }

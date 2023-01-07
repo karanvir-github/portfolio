@@ -19,39 +19,16 @@ function Home() {
                     <div className='col-6 photos'>
                         <Carousel fade>
                             <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://picsum.photos/seed/picsum/200/300"
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>First slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </Carousel.Caption>
+                                <img className="d-block w-100" src={require('../img/1.jpg')} alt="First slide" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://picsum.photos/200/300?grayscale"
-                                    alt="Second slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>Second slide label</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </Carousel.Caption>
+                                <img className="d-block w-100" src={require('../img/2.jpg')} alt="Second slide" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://picsum.photos/id/870/200/300?grayscale&blur=2"
-                                    alt="Third slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>Third slide label</h3>
-                                    <p>
-                                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                    </p>
-                                </Carousel.Caption>
+                                <img className="d-block w-100" src={require('../img/3.jpg')} alt="Third slide" />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100" src={require('../img/4.jpg')} alt="Third slide" />
                             </Carousel.Item>
                         </Carousel>
                     </div>
@@ -78,15 +55,19 @@ function Home() {
                                 </li>
                             </ul>
                         </div><br></br>
-                        <div className='links'>
+                        <div className='reachMe'>
                             <b>Ways to reach me</b><br></br>
                             <ul>
-                                <li> <a href="#"><BsInstagram /></a>
-                                    <a href="#"><BsLinkedin /></a>
-                                    <a href="#"><BsYoutube /></a>
-                                    <a href="#"><BsGithub /></a></li>
+                                <li>
+                                    {/* <a href="mailto:karanvirsagar1998@gmail.com" target="_blank"><BsLinkedin /></a> */}
+                                    <a href="https://ca.linkedin.com/in/karanvirsagar1998" target="_blank"><BsLinkedin /></a>
+                                    <a href="https://github.com/karanvirsagar1998" target="_blank"><BsGithub /></a>
+                                    <a href="https://www.instagram.com/kv._.singh/" target="_blank"><BsInstagram /></a>
+                                    <a href="https://www.youtube.com/@karanvirsagar1998" target="_blank"><BsYoutube /></a>
+                                </li>
                             </ul>
                         </div>
+                        <div className="hobbies"></div>
                     </div>
                 </div>
             </section>
