@@ -1,22 +1,23 @@
 import Navbar from '../utils/Navbar';
+import Contact from './Contact';
 import { Carousel } from 'react-bootstrap'
 import '../css/home.css';
 import { BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import { BsYoutube } from 'react-icons/bs';
 import { BsGithub } from 'react-icons/bs';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 function Home() {
     return (
         <>
-            <section className="navbar">
-                <div className="row">
-                    <Navbar />
-                </div>
-            </section>
-            <section className='content'>
-                <div className='row'>
-                    <div className='col-6 photos'>
+            <Navbar />
+            <Container fluid>
+                <Row className="mt-3">
+                    <Col xs={12} md={5} lg={6}>
                         <Carousel fade>
                             <Carousel.Item>
                                 <img className="d-block w-100" src={require('../img/1.jpg')} alt="First slide" />
@@ -31,17 +32,17 @@ function Home() {
                                 <img className="d-block w-100" src={require('../img/4.jpg')} alt="Third slide" />
                             </Carousel.Item>
                         </Carousel>
-                    </div>
-                    <div className='col-6 myself'>
-                        <div className='heading'>
-                            <h2>About Me</h2>
+                    </Col>
+                    <Col xs={12} md={7} lg={6}>
+                        <div className='heading mb-3'>
+                            <h2>About Me...</h2>
                         </div>
-                        <div className='intro'>
-                            <b>Hello, my name is Karanvir Singh, you can call me KV.<br></br> </b>
+                        <div className='intro mb-3'>
+                            <b>Hello, my name is Karanvir Singh, you can call me KV. </b>
                             I have years of expertise developing software, and I have a track record of producing and testing high-quality software to increase business productivity.
                             I am capable of employing MVC concepts, object-oriented approaches, and SQL and NoSQL databases.
-                        </div><br></br>
-                        <div className='highlights'>
+                        </div>
+                        <div className='highlights mb-3'>
                             <b>What you can expect if you hire me in your organization</b>
                             <ul>
                                 <li>
@@ -54,12 +55,11 @@ function Home() {
                                     Strong communication, and presentation skills with an aptitude for building relationships at all levels.
                                 </li>
                             </ul>
-                        </div><br></br>
-                        <div className='reachMe'>
-                            <b>Ways to reach me</b><br></br>
+                        </div>
+                        <div className='pages mb-3'>
+                            <b>Pages</b>
                             <ul>
                                 <li>
-                                    {/* <a href="mailto:karanvirsagar1998@gmail.com" target="_blank"><BsLinkedin /></a> */}
                                     <a href="https://ca.linkedin.com/in/karanvirsagar1998" target="_blank"><BsLinkedin /></a>
                                     <a href="https://github.com/karanvirsagar1998" target="_blank"><BsGithub /></a>
                                     <a href="https://www.instagram.com/kv._.singh/" target="_blank"><BsInstagram /></a>
@@ -67,10 +67,15 @@ function Home() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="hobbies"></div>
-                    </div>
-                </div>
-            </section>
+                        <div className="skills mb-3">
+                            
+                        </div>
+                        <div className="contactMe mb-3">
+                            <Contact />
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }
