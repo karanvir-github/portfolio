@@ -1,0 +1,8 @@
+.institutionLogo img {
+    width: 50% !important;
+}
+
+.institutionLogo a {
+    color: #000 !important;
+    text-decoration: none !important;
+}

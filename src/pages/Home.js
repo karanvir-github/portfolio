@@ -38,12 +38,12 @@ function Home() {
                             <h2>About Me...</h2>
                         </div>
                         <div className='intro mb-3'>
-                            <b>Hello, my name is Karanvir Singh, you can call me KV. </b>
+                            <strong>Hello, my name is Karanvir Singh, you can call me KV. </strong><br></br>
                             I have years of expertise developing software, and I have a track record of producing and testing high-quality software to increase business productivity.
                             I am capable of employing MVC concepts, object-oriented approaches, and SQL and NoSQL databases.
                         </div>
                         <div className='highlights mb-3'>
-                            <b>What you can expect if you hire me in your organization</b>
+                            <b>What you will receive if you employ me for your company</b>
                             <ul>
                                 <li>
                                     A dynamic, positive, and personable individual with strong analytical abilities.
@@ -68,7 +68,12 @@ function Home() {
                             </ul>
                         </div>
                         <div className="skills mb-3">
-                            
+                            <strong>Skills</strong>
+                            <ul>
+                                <li>Languages: </li>
+                                <li>Frameworks:</li>
+                                <li>Tools: </li>
+                            </ul>
                         </div>
                         <div className="contactMe mb-3">
                             <Contact />

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Education from './pages/Education';
 import Experience from './pages/Experience';
+import Reviews from './pages/Reviews';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <Route exact path="study-background" element={<Education />} />
       <Route exact path="/" element={<Home />} />
       <Route exact path="work-history" element={<Experience />} />
+      <Route exact path="reviews" element={<Reviews />} />
     </Routes>
   </BrowserRouter>
 );

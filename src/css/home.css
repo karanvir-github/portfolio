@@ -2,9 +2,18 @@
 
 html,
 body {
+
     font-family: 'Roboto', sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+}
+
+#root,
+body,
+html {
+    background: linear-gradient(to bottom, #E5EDF1 0%, #96C2DB 200px, #96C2DB 100%) repeat-x scroll 0% 0% #96C2DB !important;
+    height: 100% !important;
+    width: 100%;
 }
 
 .navbar-expand-lg .navbar-nav {
