@@ -1,44 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto"');
+
+html,
 body {
-    background-color: aliceblue !important;
+
+    font-family: 'Roboto', sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
-.navbar .row {
+#root,
+body,
+html {
+    background: linear-gradient(to bottom, #E5EDF1 0%, #96C2DB 200px, #96C2DB 100%) repeat-x scroll 0% 0% #96C2DB !important;
+    height: 100% !important;
+    width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav {
+    margin: 0% 25%;
+}
+
+.carousel-item img {
+    padding: 10px !important;
+    border-radius: 100px !important;
     margin: auto !important;
-}
-
-.navbar .row .nav-item {
-    padding: 0px 15px !important;
-}
-
-.content .row .photos {
-    width: 450px;
-    margin: auto;
-    padding-top: 50px;
-    padding-left: 0px !important;
-}
-
-.content .row {
-    margin: 0px !important;
+    width: 65% !important;
+    height: 70% !important;
 }
 
 
-.content .row .myself .heading {
-    padding-top: 35px;
-    padding-left: 0px !important;
-}
-
-.content .row .intro {
-    margin-right: 30%;
-    text-align: justify;
-}
-
-.content .row .highlights {
-    margin-right: 30%;
-    text-align: justify;
-}
-
-.content .row .reachMe a {
+.pages a {
     font-size: 25px;
     padding: 0px 10px;
     color: #000;
+}
+
+.contactMe .contact .contactMeBtn {
+    color: #000;
+    background: aliceblue;
+}
+
+.contactMe .contact .contactMeBtn:hover {
+    background: #171515 !important;
+    color: #fff !important;
 }
