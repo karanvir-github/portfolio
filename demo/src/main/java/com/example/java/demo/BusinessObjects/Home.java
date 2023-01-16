@@ -1,0 +1,18 @@
+package com.example.java.demo.BusinessObjects;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "home")
+public class Home {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String aboutme;
+    private String highlghts;
+}
