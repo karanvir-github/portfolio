@@ -1,4 +1,4 @@
-package com.example.java.demo.Repositories;
+package com.example.java.demo.Controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.java.demo.BusinessObjects.Skill;
+import com.example.java.demo.Repositories.SkillRepository;
 
 @RestController
 @RequestMapping("/skills")

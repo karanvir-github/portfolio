@@ -35,22 +35,6 @@ CREATE TABLE `home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `home_seq`
---
-
-CREATE TABLE `home_seq` (
-  `next_val` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `home_seq`
---
-
-INSERT INTO `home_seq` (`next_val`) VALUES
-(1);
-
 -- --------------------------------------------------------
 
 --
@@ -75,22 +59,6 @@ INSERT INTO `skill` (`id`, `languages`, `frameworks`, `tools`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `skill_seq`
---
-
-CREATE TABLE `skill_seq` (
-  `next_val` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `skill_seq`
---
-
-INSERT INTO `skill_seq` (`next_val`) VALUES
-(101);
-
---
 -- Indexes for dumped tables
 --
 
