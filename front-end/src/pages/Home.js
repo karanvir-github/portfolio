@@ -9,9 +9,38 @@ import { BsGithub } from 'react-icons/bs';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import HomeService from '../services/home-service'
+import SkillService from '../services/skill-service'
+import { useState, useEffect } from 'react';
 
 
 function Home() {
+    const [aboutMe, setAboutMe] = useState("")
+    const [highlights, setHighlights] = useState("")
+    const [pages, setPages] = useState("")
+    useEffect(() => {
+        getHomeData();
+        getSkills();
+    }, [])
+    function getHomeData() {
+        HomeService.getHomeData().then((response) => {
+            setAboutMe(response.data[0].aboutme)
+            setHighlights(response.data[0].highlights)
+            setPages(response.data[0].pages)
+            console.log(response.data[0].pages)
+        })
+    }
+    const [languages, setLanguages] = useState("")
+    const [frameworks, setFrameworks] = useState("")
+    const [tools, setTools] = useState("")
+
+    function getSkills() {
+        SkillService.getSkills().then((response) => {
+            setLanguages(response.data.languages)
+            setFrameworks(response.data.frameworks)
+            setTools(response.data.tools)
+        })
+    }
     return (
         <>
             <Navbar />
@@ -37,42 +66,16 @@ function Home() {
                         <div className='heading mb-3'>
                             <h2>About Me...</h2>
                         </div>
-                        <div className='intro mb-3'>
-                            <strong>Hello, my name is Karanvir Singh, you can call me KV. </strong><br></br>
-                            I have years of expertise developing software, and I have a track record of producing and testing high-quality software to increase business productivity.
-                            I am capable of employing MVC concepts, object-oriented approaches, and SQL and NoSQL databases.
-                        </div>
-                        <div className='highlights mb-3'>
-                            <b>What you will receive if you employ me for your company</b>
-                            <ul>
-                                <li>
-                                    A dynamic, positive, and personable individual with strong analytical abilities.
-                                </li>
-                                <li>
-                                    Capable of debugging code and offering documentation to other developers.
-                                </li>
-                                <li>
-                                    Strong communication, and presentation skills with an aptitude for building relationships at all levels.
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='pages mb-3'>
-                            <b>Pages</b>
-                            <ul>
-                                <li>
-                                    <a href="https://ca.linkedin.com/in/karanvirsagar1998" target="_blank"><BsLinkedin /></a>
-                                    <a href="https://github.com/karanvirsagar1998" target="_blank"><BsGithub /></a>
-                                    <a href="https://www.instagram.com/kv._.singh/" target="_blank"><BsInstagram /></a>
-                                    <a href="https://www.youtube.com/@karanvirsagar1998" target="_blank"><BsYoutube /></a>
-                                </li>
-                            </ul>
-                        </div>
+                        <div className='intro mb-3' dangerouslySetInnerHTML={{ __html: aboutMe }} />
+                        <div className='highlights mb-3' dangerouslySetInnerHTML={{ __html: highlights }} />
+                        <b>Pages</b>
+                        <div className='pages mb-3' dangerouslySetInnerHTML={{ __html: pages }} />
                         <div className="skills mb-3">
                             <strong>Skills</strong>
                             <ul>
-                                <li>Languages: </li>
-                                <li>Frameworks:</li>
-                                <li>Tools: </li>
+                                <li>Languages: {languages}</li>
+                                <li>Frameworks:{frameworks}</li>
+                                <li>Tools: {tools}</li>
                             </ul>
                         </div>
                         <div className="contactMe mb-3">
