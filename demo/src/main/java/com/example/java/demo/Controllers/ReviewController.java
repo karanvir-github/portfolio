@@ -14,56 +14,56 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.java.demo.BusinessObjects.Skill;
-import com.example.java.demo.Repositories.SkillRepository;
+import com.example.java.demo.BusinessObjects.Review;
+import com.example.java.demo.Repositories.ReviewRepository;
 
 @RestController
-@RequestMapping("/skills")
-public class SkillController {
+@RequestMapping("/reviews")
+public class ReviewController {
 
     @Autowired
-    private SkillRepository skillRepository;
+    private ReviewRepository reviewRepository;
 
     @GetMapping
-    public ResponseEntity<List<Skill>> getSkillList() {
+    public ResponseEntity<List<Review>> getReviewList() {
         try {
-            List<Skill> skills = new ArrayList<Skill>();
-            skills = skillRepository.findAll();
-            return new ResponseEntity<>(skills, HttpStatus.OK);
+            List<Review> reviews = new ArrayList<Review>();
+            reviews = reviewRepository.findAll();
+            return new ResponseEntity<>(reviews, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping
-    public ResponseEntity<Skill> addNewSkill(@RequestBody Skill skill) {
+    public ResponseEntity<Review> addNewReview(@RequestBody Review review) {
         try {
-            Skill newSkill = skillRepository.save(skill);
-            return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
+            Review newReview = reviewRepository.save(review);
+            return new ResponseEntity<>(newReview, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateSkill(@RequestBody Skill updatedSkill, @PathVariable Integer id) {
-        Optional<Skill> existingSkillData = skillRepository.findById(id);
-        if (existingSkillData.isPresent()) {
-            Skill oldSkill = existingSkillData.get();
-            oldSkill.setLanguages(updatedSkill.getLanguages());
-            oldSkill.setFrameworks(updatedSkill.getFrameworks());
-            oldSkill.setTools(updatedSkill.getTools());
-            skillRepository.save(oldSkill);
-            return new ResponseEntity<>(oldSkill, HttpStatus.OK);
+    public ResponseEntity<?> updateReview(@RequestBody Review updatedReview, @PathVariable Integer id) {
+        Optional<Review> existingReviewData = reviewRepository.findById(id);
+        if (existingReviewData.isPresent()) {
+            Review oldReview = existingReviewData.get();
+            oldReview.setReview(updatedReview.getReview());
+            oldReview.setStars(updatedReview.getStars());
+            oldReview.setReviewerName(updatedReview.getReviewerName());
+            reviewRepository.save(oldReview);
+            return new ResponseEntity<>(oldReview, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteSkill(@PathVariable Integer id) {
+    public ResponseEntity<?> deleteReview(@PathVariable Integer id) {
         try {
-            skillRepository.deleteById(id);
+            reviewRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

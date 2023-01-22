@@ -8,12 +8,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "home")
-public class Home {
+@Table(name = "review")
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String aboutme;
-    private String highlights;
-    private String pages;
+    private String review;
+    private String stars;
+    private String reviewerName;
 }

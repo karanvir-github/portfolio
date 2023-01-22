@@ -8,12 +8,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "home")
-public class Home {
+@Table(name = "project")
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String aboutme;
-    private String highlights;
-    private String pages;
+    private String projectLogo;
+    private String projectName;
+    private String projectSlogan;
+    private String projectUrl;
 }
