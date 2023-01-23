@@ -2,43 +2,41 @@ import Navbar from '../utils/Navbar';
 import Contact from './Contact';
 import { Carousel } from 'react-bootstrap'
 import '../css/home.css';
-import { BsInstagram } from 'react-icons/bs';
-import { BsLinkedin } from 'react-icons/bs';
-import { BsYoutube } from 'react-icons/bs';
-import { BsGithub } from 'react-icons/bs';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HomeService from '../services/home-service'
 import SkillService from '../services/skill-service'
 import { useState, useEffect } from 'react';
-
+import '../fontawesome/css/all.css';
 
 function Home() {
     const [aboutMe, setAboutMe] = useState("")
     const [highlights, setHighlights] = useState("")
     const [pages, setPages] = useState("")
+
     useEffect(() => {
         getHomeData();
         getSkills();
     }, [])
+
     function getHomeData() {
         HomeService.getHomeData().then((response) => {
             setAboutMe(response.data[0].aboutme)
             setHighlights(response.data[0].highlights)
             setPages(response.data[0].pages)
-            console.log(response.data[0].pages)
         })
     }
+
     const [languages, setLanguages] = useState("")
     const [frameworks, setFrameworks] = useState("")
     const [tools, setTools] = useState("")
 
     function getSkills() {
         SkillService.getSkills().then((response) => {
-            setLanguages(response.data.languages)
-            setFrameworks(response.data.frameworks)
-            setTools(response.data.tools)
+            setLanguages(response.data[0].languages)
+            setFrameworks(response.data[0].frameworks)
+            setTools(response.data[0].tools)
         })
     }
     return (
