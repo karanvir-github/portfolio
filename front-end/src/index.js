@@ -8,6 +8,7 @@ import Education from './pages/Education';
 import Experience from './pages/Experience';
 import Reviews from './pages/Reviews';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

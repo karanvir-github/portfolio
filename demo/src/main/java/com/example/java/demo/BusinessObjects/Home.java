@@ -14,5 +14,6 @@ public class Home {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String aboutme;
-    private String highlghts;
+    private String highlights;
+    private String pages;
 }
