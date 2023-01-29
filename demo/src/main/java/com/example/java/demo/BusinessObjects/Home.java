@@ -11,7 +11,7 @@ import lombok.*;
 @Table(name = "home")
 public class Home {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String aboutme;
     private String highlights;

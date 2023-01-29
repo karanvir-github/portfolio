@@ -13,7 +13,7 @@ import lombok.*;
 @Table(name = "experience")
 public class Experience {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String jobTitle;
     private String companyName;

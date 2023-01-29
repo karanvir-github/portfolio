@@ -7,6 +7,9 @@ import Home from './pages/Home';
 import Education from './pages/Education';
 import Experience from './pages/Experience';
 import Reviews from './pages/Reviews';
+import Admin from './pages/AdminPages/Admin';
+import AdminLogin from './pages/AdminPages/AdminLogin';
+import AdminDash from './pages/AdminPages/AdminDash';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +20,10 @@ root.render(
       <Route exact path="/" element={<Home />} />
       <Route exact path="work-history" element={<Experience />} />
       <Route exact path="reviews" element={<Reviews />} />
+      <Route exact path="adminLogin" element={<AdminLogin />} />
+      <Route exact path="admin" element={<Admin />} >
+        <Route exact path="dash" element={<AdminDash />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );
