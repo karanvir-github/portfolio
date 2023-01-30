@@ -53,7 +53,10 @@ public class HomeController {
             Home oldHomeData = isDataExist.get();
             oldHomeData.setAboutme(updatedData.getAboutme());
             oldHomeData.setHighlights(updatedData.getHighlights());
-            oldHomeData.setPages(updatedData.getPages());
+            oldHomeData.setLinkedin((updatedData.getLinkedin()));
+            oldHomeData.setGithub(updatedData.getGithub());
+            oldHomeData.setYoutube(updatedData.getYoutube());
+            oldHomeData.setInstagram(updatedData.getInstagram());
             homeRepository.save(oldHomeData);
             return new ResponseEntity<>(updatedData, HttpStatus.OK);
         } else {

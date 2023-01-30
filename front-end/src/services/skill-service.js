@@ -4,11 +4,11 @@ class SkillService {
     getSkills() {
         return http.get("/skills");
     }
-    createSkill() {
-        return http.post("/skills");
+    createSkill(data) {
+        return http.post("/skills", data);
     }
-    updateSkill() {
-        return http.put("/skills");
+    updateSkill(data, id) {
+        return http.put("/skills/" + id, data);
     }
     deleteSkill() {
         return http.delete("/skills");

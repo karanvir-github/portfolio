@@ -10,7 +10,10 @@ import Reviews from './pages/Reviews';
 import Admin from './pages/AdminPages/Admin';
 import AdminLogin from './pages/AdminPages/AdminLogin';
 import AdminDash from './pages/AdminPages/AdminDash';
-
+import AdminSkill from './pages/AdminPages/AdminSkill';
+import AdminEducation from './pages/AdminPages/AdminEducation';
+import AdminExperience from './pages/AdminPages/AdminExperience';
+import AdminReviews from './pages/AdminPages/AdminReviews';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +26,10 @@ root.render(
       <Route exact path="adminLogin" element={<AdminLogin />} />
       <Route exact path="admin" element={<Admin />} >
         <Route exact path="dash" element={<AdminDash />} />
+        <Route exact path="skills" element={<AdminSkill />} />
+        <Route exact path="education" element={<AdminEducation />} />
+        <Route exact path="experience" element={<AdminExperience />} />
+        <Route exact path="reviews" element={<AdminReviews />} />
       </Route>
     </Routes>
   </BrowserRouter>
