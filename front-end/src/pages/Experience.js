@@ -13,11 +13,6 @@ function Experience() {
     const [experiences, setExperiences] = useState([])
     const [projects, setProjects] = useState([])
 
-    useEffect(() => {
-        getAllExperiences();
-        getAllProjects();
-    }, [])
-
     function getAllExperiences() {
         ExperienceService.getExperienceData().then((response) => {
             setExperiences(response.data)
@@ -28,6 +23,11 @@ function Experience() {
             setProjects(response.data)
         })
     }
+    
+    useEffect(() => {
+        getAllExperiences();
+        getAllProjects();
+    }, [])
 
     return (
         <>

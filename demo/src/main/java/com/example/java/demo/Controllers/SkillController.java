@@ -32,8 +32,13 @@ public class SkillController {
     }
 
     @PostMapping
-    public void addNewSkill(@RequestBody Skill skill) {
-        skillRepository.save(skill);
+    public ResponseEntity<Skill> addNewSkill(@RequestBody Skill skill) {
+        try {
+            Skill newSkill = skillRepository.save(skill);
+            return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/{id}")
@@ -45,7 +50,7 @@ public class SkillController {
             oldSkill.setFrameworks(updatedSkill.getFrameworks());
             oldSkill.setTools(updatedSkill.getTools());
             skillRepository.save(oldSkill);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(updatedSkill, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

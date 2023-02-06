@@ -78,7 +78,6 @@ function AdminDash() {
 
         homepagecontent["aboutme"] = rawAboutMe
         homepagecontent["highlights"] = rawHighlights
-        homepagecontent["id"] = id
         homepagecontent["linkedin"] = linkedin
         homepagecontent["github"] = github
         homepagecontent["youtube"] = youtube
@@ -86,7 +85,7 @@ function AdminDash() {
 
         if (id == null || id == '') {
             homeService.postHomeData(JSON.stringify(homepagecontent)).then((res) => {
-                if (res.status === 201) { //201 for new
+                if (res.status === 201) { // code 201 means that data is created
                     setId(res.data.id)
                     setShow(true)
                     window.scrollTo({
@@ -97,7 +96,7 @@ function AdminDash() {
             })
         } else {
             homeService.updateHomeData(JSON.stringify(homepagecontent), id).then((res) => {
-                if (res.status === 200) { //200 for edited
+                if (res.status === 201) { // code 201 means that data is created
                     setShow(true)
                     window.scrollTo({
                         top: 0,

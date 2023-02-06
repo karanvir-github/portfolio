@@ -4,6 +4,10 @@
     }
 }
 
+.taskArea {
+    padding-top: 100px !important;
+}
+
 @media only screen and (min-width: 768px) {
     .projectsArea {
         padding: 30px 50px 50px 50px !important;

@@ -41,7 +41,7 @@ function AdminSkill() {
         skills["tools"] = tools
         if (id == null || id == '') {
             skillService.createSkill(skills).then((res) => {
-                if (res.status === 200) { //200 for new
+                if (res.status === 201) { // code 201 means that data is created
                     setId(res.data.id)
                     setShow(true)
                     window.scrollTo({
@@ -52,8 +52,7 @@ function AdminSkill() {
             })
         } else {
             skillService.updateSkill(skills, id).then((res) => {
-                if (res.status === 200) { //200 for edit
-                    setId(res.data.id)
+                if (res.status === 201) { // code 201 means that data is created
                     setShow(true)
                     window.scrollTo({
                         top: 0,
