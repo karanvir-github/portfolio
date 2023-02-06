@@ -4,30 +4,30 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Menu() {
+function AdminNav() {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container fluid>
-                    <Navbar.Brand>Welcome to my Portfolio</Navbar.Brand>
+                    <Navbar.Brand>Admin Panel</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <LinkContainer to="/">
-                                <Nav.Link href="#home">Home</Nav.Link>
+                            <LinkContainer to="/admin/dash">
+                                <Nav.Link href="#basic">Basic Info</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/work-history">
-                                <Nav.Link href="#experience">Experience</Nav.Link>
+                            <LinkContainer to="/admin/skills">
+                                <Nav.Link href="#skills">Skills</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/study-background">
-                                <Nav.Link href="#education">Education</Nav.Link>
+                            <LinkContainer to="/admin/experience">
+                                <Nav.Link href="/education">Experience</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/reviews">
-                                <Nav.Link href="#rate">Rate My Portfolio</Nav.Link>
+                            <LinkContainer to="/admin/education">
+                                <Nav.Link href="/education">Education</Nav.Link>
                             </LinkContainer>
-                            <NavDropdown title="More" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.2">Buy me a Coffee ?</NavDropdown.Item>
-                            </NavDropdown>
+                            <LinkContainer to="/admin/reviews">
+                                <Nav.Link href="/education">Reviews</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -36,4 +36,4 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default AdminNav;

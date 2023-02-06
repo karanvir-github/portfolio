@@ -4,11 +4,11 @@ class ExperienceService {
     getExperienceData() {
         return http.get("/experience");
     }
-    postExperienceData() {
-        return http.post("/experience");
+    postExperienceData(data) {
+        return http.post("/experience", data);
     }
-    updateExperienceData() {
-        return http.put("/experience");
+    updateExperienceData(data, id) {
+        return http.put("/experience/" + id, data);
     }
     deleteExperienceData() {
         return http.delete("/experience");

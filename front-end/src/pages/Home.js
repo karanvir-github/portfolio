@@ -9,22 +9,27 @@ import HomeService from '../services/home-service'
 import SkillService from '../services/skill-service'
 import { useState, useEffect } from 'react';
 import '../fontawesome/css/all.css';
+import { BsLinkedin } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 
 function Home() {
     const [aboutMe, setAboutMe] = useState("")
     const [highlights, setHighlights] = useState("")
-    const [pages, setPages] = useState("")
-
-    useEffect(() => {
-        getHomeData();
-        getSkills();
-    }, [])
+    const [linkedin, setLinkedIn] = useState("")
+    const [github, setGithub] = useState("")
+    const [youtube, setYouTube] = useState("")
+    const [instagram, setInstagram] = useState("")
 
     function getHomeData() {
         HomeService.getHomeData().then((response) => {
             setAboutMe(response.data[0].aboutme)
             setHighlights(response.data[0].highlights)
-            setPages(response.data[0].pages)
+            setLinkedIn(response.data[0].linkedin)
+            setGithub(response.data[0].github)
+            setYouTube(response.data[0].youtube)
+            setInstagram(response.data[0].instagram)
         })
     }
 
@@ -39,11 +44,17 @@ function Home() {
             setTools(response.data[0].tools)
         })
     }
+    
+    useEffect(() => {
+        getHomeData();
+        getSkills();
+    }, [])
+
     return (
         <>
             <Navbar />
             <Container fluid>
-                <Row className="mt-3">
+                <Row style={{ marginTop: '55px' }}>
                     <Col xs={12} md={5} lg={6}>
                         <Carousel fade>
                             <Carousel.Item>
@@ -65,9 +76,15 @@ function Home() {
                             <h2>About Me...</h2>
                         </div>
                         <div className='intro mb-3' dangerouslySetInnerHTML={{ __html: aboutMe }} />
+                        <h2>Highlights...</h2>
                         <div className='highlights mb-3' dangerouslySetInnerHTML={{ __html: highlights }} />
-                        <b>Pages</b>
-                        <div className='pages mb-3' dangerouslySetInnerHTML={{ __html: pages }} />
+                        <b>Pages...</b>
+                        <div className='pages mb-3'>
+                            <a href={linkedin} target="_blank"><BsLinkedin></BsLinkedin></a>
+                            <a href={github} target="_blank"><BsGithub></BsGithub></a>
+                            <a href={youtube} target="_blank"><BsYoutube></BsYoutube></a>
+                            <a href={instagram} target="_blank"><BsInstagram></BsInstagram></a>
+                        </div>
                         <div className="skills mb-3">
                             <strong>Skills</strong>
                             <ul>

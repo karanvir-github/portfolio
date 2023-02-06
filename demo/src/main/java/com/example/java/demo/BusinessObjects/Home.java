@@ -15,5 +15,8 @@ public class Home {
     private Integer id;
     private String aboutme;
     private String highlights;
-    private String pages;
+    private String linkedin;
+    private String github;
+    private String youtube;
+    private String instagram;
 }

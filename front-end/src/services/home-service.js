@@ -4,11 +4,11 @@ class HomeService {
     getHomeData() {
         return http.get("/home");
     }
-    postHomeData() {
-        return http.post("/home");
+    postHomeData(data) {
+        return http.post("/home", data)
     }
-    updateHomeData() {
-        return http.put("/home");
+    updateHomeData(data, id) {
+        return http.put("/home/" + id, data);
     }
     deleteHomeData() {
         return http.delete("/home");
