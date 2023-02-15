@@ -11,8 +11,8 @@ import Admin from './pages/AdminPages/Admin';
 import AdminLogin from './pages/AdminPages/AdminLogin';
 import AdminDash from './pages/AdminPages/AdminDash';
 import AdminSkill from './pages/AdminPages/AdminSkill';
-import AdminEducation from './pages/AdminPages/AdminEducation';
-import AdminEditExperience from './pages/AdminPages/AdminEditExperience';
+import AdminEducation from './pages/AdminPages/AdminAddEducation';
+import AdminAddExperience from './pages/AdminPages/AdminAddExperience';
 import AdminReviews from './pages/AdminPages/AdminReviews';
 import AdminShowAllExperiences from './pages/AdminPages/AdminShowAllExperiences';
 
@@ -30,7 +30,8 @@ root.render(
         <Route exact path="skills" element={<AdminSkill />} />
         <Route exact path="education" element={<AdminEducation />} />
         <Route exact path="experience" element={<AdminShowAllExperiences />} />
-        <Route exact path="experience/edit" element={<AdminEditExperience />} />
+        <Route exact path="experience/new" element={<AdminAddExperience />} />
+        <Route exact path="experience/edit/:id" element={<AdminAddExperience />} />
         <Route exact path="reviews" element={<AdminReviews />} />
       </Route>
     </Routes>

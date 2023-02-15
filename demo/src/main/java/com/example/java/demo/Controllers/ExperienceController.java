@@ -3,8 +3,6 @@ package com.example.java.demo.Controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +34,16 @@ public class ExperienceController {
             experiences = experienceRepository.findAll();
             return new ResponseEntity<>(experiences, HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getExperienceById(@PathVariable Integer id) {
+        Optional<Experience> experience = experienceRepository.findById(id);
+        if (experience.isPresent()) {
+            return new ResponseEntity<>(experience, HttpStatus.OK);
+        } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

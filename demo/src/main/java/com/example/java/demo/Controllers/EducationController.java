@@ -39,6 +39,16 @@ public class EducationController {
         }
     }
 
+    @GetMapping("/id")
+    public ResponseEntity<?> getEducationById(@PathVariable Integer id) {
+        Optional<Education> education = educationRepository.findById(id);
+        if (education.isPresent()) {
+            return new ResponseEntity<>(education, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Education> addEducation(@RequestBody Education education) {
         try {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import AdminNav from '../../utils/AdminNavbar'
 import Table from 'react-bootstrap/Table';
@@ -32,7 +33,10 @@ function AdminShowAllExperiences() {
             <AdminNav></AdminNav>
             <Container>
                 <Row>
-                    <Table striped bordered hover style={{ marginTop: '100px', background: 'aliceblue' }}>
+                    <Col style={{ marginTop: '100px' }}>
+                        <h3>Relevant Experience <a href='experience/new' title='Add New'><i className="fa-solid fa-plus"></i></a></h3>
+                    </Col>
+                    <Table striped bordered hover style={{ background: 'aliceblue' }}>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -48,7 +52,7 @@ function AdminShowAllExperiences() {
                         <tbody>
                             {
                                 experience.map(ex =>
-                                    <tr eventKey={ex.id}>
+                                    <tr key={ex.id}>
                                         <td>1</td>
                                         <td>{ex.jobTitle}</td>
                                         <td>{ex.companyName}</td>
@@ -57,10 +61,10 @@ function AdminShowAllExperiences() {
                                         <td>{ex.endDate}</td>
                                         <td>{ex.taskPerformed}</td>
                                         <td>
-                                            <a href={"experience/edit/" + ex.id} style={{ textDecoration: 'none', color: '#0b77f9', cursor: 'pointer', margin: '0px 5px 0px 5px' }}>
+                                            <a href={`experience/edit/${ex.id}`} style={{ textDecoration: 'none', color: '#0b77f9', cursor: 'pointer', margin: '0px 5px 0px 5px' }}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a href='' style={{ textDecoration: 'none', color: 'red', cursor: 'pointer', margin: '0px 5px 0px 5px' }}>
+                                            <a href={`deleteExperience(${ex.id})`} style={{ textDecoration: 'none', color: 'red', cursor: 'pointer', margin: '0px 5px 0px 5px' }}>
                                                 <i className="fa-solid fa-trash"></i>
                                             </a>
                                         </td>

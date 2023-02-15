@@ -4,8 +4,8 @@ class EducationService {
     getEducationData() {
         return http.get("/education")
     }
-    postEducationData() {
-        return http.post("/education");
+    postEducationDataById(id) {
+        return http.post("/education/" + id);
     }
     updateEducationData() {
         return http.put("/education");
