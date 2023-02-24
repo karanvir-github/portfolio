@@ -20,7 +20,9 @@ public class Experience {
     private Date startDate;
     private Date endDate;
     private String place;
-    private String companyLogo;
-    private String companySlogan;
+    private String companyLink;
+
+    @Lob
+    @Column(name = "task_performed", length = 10000)
     private String taskPerformed;
 }

@@ -4,14 +4,17 @@ class EducationService {
     getEducationData() {
         return http.get("/education")
     }
-    postEducationDataById(id) {
-        return http.post("/education/" + id);
+    getEducationDataById(id) {
+        return http.get("/education/" + id);
     }
-    updateEducationData() {
-        return http.put("/education");
+    postEducationData(data) {
+        return http.post("/education", data);
     }
-    deleteEducationData() {
-        return http.delete("/education");
+    updateEducationData(data, id) {
+        return http.put("/education/" + id, data);
+    }
+    deleteEducationData(id) {
+        return http.delete("/education/" + id);
     }
 }
 export default new EducationService();

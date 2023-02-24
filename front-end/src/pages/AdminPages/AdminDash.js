@@ -28,6 +28,8 @@ function AdminDash() {
     const [github, setGithub] = useState("")
     const [youtube, setYouTube] = useState("")
     const [instagram, setInstagram] = useState("")
+    const [leetcode, setLeetcode] = useState("")
+
     // to get the data and set to fields    
     function getHomeData() {
         homeService.getHomeData().then((response) => {
@@ -37,6 +39,7 @@ function AdminDash() {
                 setGithub(response.data[0].github)
                 setYouTube(response.data[0].youtube)
                 setInstagram(response.data[0].instagram)
+                setLeetcode(response.data[0].leetcode)
                 renderAboutME(response.data[0].aboutme)
                 renderHighLights(response.data[0].highlights)
             }
@@ -64,6 +67,7 @@ function AdminDash() {
         github: '',
         youtube: '',
         instagram: '',
+        leetcode: '',
     })
     // toaster
     const [show, setShow] = useState(false);
@@ -82,6 +86,7 @@ function AdminDash() {
         homepagecontent["github"] = github
         homepagecontent["youtube"] = youtube
         homepagecontent["instagram"] = instagram
+        homepagecontent["leetcode"] = leetcode
 
         if (id == null || id == '') {
             homeService.postHomeData(JSON.stringify(homepagecontent)).then((res) => {
@@ -164,6 +169,14 @@ function AdminDash() {
                             </Form.Label>
                             <Col sm={5}>
                                 <Form.Control name='github' value={github} type="text" onChange={(e) => setGithub(e.target.value)} placeholder="profile URL" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} className="mb-3">
+                            <Form.Label column sm={1}>
+                                LeetCode
+                            </Form.Label>
+                            <Col sm={5}>
+                                <Form.Control name='leetcode' value={leetcode} type="text" onChange={(e) => setLeetcode(e.target.value)} placeholder="profile URL" />
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">

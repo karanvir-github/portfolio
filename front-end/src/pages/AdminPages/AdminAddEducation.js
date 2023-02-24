@@ -6,37 +6,61 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import AdminNav from '../../utils/AdminNavbar'
 import educationService from '../../services/education-service';
+import Toast from 'react-bootstrap/Toast';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function AdminEducation() {
+function AdminAddEducation() {
+    const navigate = useNavigate();
+    const { id } = useParams();
+
+    //get data to set fields...
+    const [coursename, setCoursename] = useState("")
+    const [coursetype, setCoursetype] = useState("")
+    const [startdate, setStartdate] = useState("")
+    const [enddate, setEnddate] = useState("")
+    const [place, setPlace] = useState("")
+    const [institutionname, setInstitutionname] = useState("")
+    const [institutionlink, setinstitutionLink] = useState("")
+
     //get data with id
-    const getAllEducationDataById = (id) =>{
-        educationService.getAllEducationData
+    const getAllEducationDataById = (id) => {
+        educationService.getEducationDataById(id).then((res) => {
+            if (res.data) {
+                setCoursename(res.data.courseName)
+                setCoursetype(res.data.courseType)
+                setStartdate(res.data.startDate)
+                setEnddate(res.data.endDate)
+                setPlace(res.data.place)
+                setInstitutionname(res.data.institutionName)
+                setinstitutionLink(res.data.institutionLink)
+            }
+        })
     }
+
     //submit education data
     const [education] = useState({
         courseName: '',
         courseType: '',
         endDate: '',
-        institutionLogo: '',
-        institutionSlogan: '',
+        startDate: '',
+        institutionLink: '',
+        institutionName: '',
         learning: '',
         place: '',
-        startDate: ''
     })
+
     const [show, setShow] = useState(false); //toaster
-    const submitExperienceForm = (e) => {
+    function submitEducationForm(e) {
         e.preventDefault();
         education["courseName"] = coursename
         education["courseType"] = coursetype
-        education["institutionLogo"] = institutionlogo
-        education["institutionSlogan"] = institutionslogan
-        education["learning"] = learning
+        education["institutionLink"] = institutionlink
+        education["institutionName"] = institutionname
         education["place"] = place
         education["startDate"] = new Date(startdate + "EST")
         education["endDate"] = new Date(enddate + "EST")
-
         if (id == null || id == '') {
-            educationService.postExperienceData(JSON.stringify(experience)).then((res) => {
+            educationService.postEducationData(JSON.stringify(education)).then((res) => {
                 if (res.status === 201) { // code 201 means that data is created
                     setShow(true)
                     window.scrollTo({
@@ -46,7 +70,7 @@ function AdminEducation() {
                 }
             })
         } else {
-            educationService.updateExperienceData(JSON.stringify(experience), id).then((res) => {
+            educationService.updateEducationData(JSON.stringify(education), id).then((res) => {
                 if (res.status === 201) { // code 201 means that data is created
                     setShow(true)
                     window.scrollTo({
@@ -59,8 +83,10 @@ function AdminEducation() {
         }
     }
     useEffect(() => {
-        getAllEducationDataById();
-    })
+        if (id) {
+            getAllEducationDataById(id);
+        }
+    }, [])
     return (
         <>
             <Container>
@@ -79,11 +105,11 @@ function AdminEducation() {
                         <Toast.Body className='text-center' style={{ backgroundColor: '#a3fdc6' }}>Success, content updated!</Toast.Body>
                     </Toast>
                 </Row>
-                <Form style={{ marginTop: '50px' }} onSubmit={submitExperienceForm} >
+                <Form style={{ marginTop: '50px' }} onSubmit={submitEducationForm} >
                     <Row>
                         <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm={2}>
-                                Job Title
+                                Course Name
                             </Form.Label>
                             <Col sm={4}>
                                 <Form.Control name='coursename' value={coursename} type="text" onChange={(e) => setCoursename(e.target.value)} placeholder="type here..." />
@@ -91,10 +117,10 @@ function AdminEducation() {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm={2}>
-                                Company Name
+                                Course Type
                             </Form.Label>
                             <Col sm={4}>
-                                <Form.Control name='company' value={coursetype} type="text" onChange={(e) => setCoursetype(e.target.value)} placeholder="type here..." />
+                                <Form.Control name='coursetype' value={coursetype} type="text" onChange={(e) => setCoursetype(e.target.value)} placeholder="type here..." />
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
@@ -123,26 +149,18 @@ function AdminEducation() {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm={2}>
-                                Company Logo (<i>optional</i>)
+                                Institution Name
                             </Form.Label>
                             <Col sm={4}>
-                                <Form.Control name='institutionname' value={institutionname} type="file" onChange={(e) => setInstitutionname(e.target.value)} placeholder="type here..." />
+                                <Form.Control name='institutionname' value={institutionname} type="text" onChange={(e) => setInstitutionname(e.target.value)} placeholder="type here..." />
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm={2}>
-                                Company Slogan (<i>optional</i>)
+                                Instituion Link (<i>optional</i>)
                             </Form.Label>
                             <Col sm={10}>
-                                <Form.Control name='institutionslogan' value={institutionslogan} type="text" onChange={(e) => setInstitutionSlogan(e.target.value)} placeholder="type here..." />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm={2}>
-                                Company Slogan (<i>optional</i>)
-                            </Form.Label>
-                            <Col sm={10}>
-                                <Form.Control name='learning' value={learning} type="text" onChange={(e) => setLearning(e.target.value)} placeholder="type here..." />
+                                <Form.Control name='institutionlink' value={institutionlink} type="text" onChange={(e) => setinstitutionLink(e.target.value)} placeholder="type here..." />
                             </Col>
                         </Form.Group>
                     </Row>
@@ -153,4 +171,4 @@ function AdminEducation() {
     )
 }
 
-export default AdminEducation
+export default AdminAddEducation

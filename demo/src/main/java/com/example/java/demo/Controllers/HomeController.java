@@ -56,6 +56,7 @@ public class HomeController {
             oldHomeData.setGithub(updatedData.getGithub());
             oldHomeData.setYoutube(updatedData.getYoutube());
             oldHomeData.setInstagram(updatedData.getInstagram());
+            oldHomeData.setLeetcode(updatedData.getLeetcode());
             homeRepository.save(oldHomeData);
             return new ResponseEntity<>(updatedData, HttpStatus.CREATED);
         } else {
