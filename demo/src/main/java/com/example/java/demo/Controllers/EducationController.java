@@ -32,14 +32,14 @@ public class EducationController {
     public ResponseEntity<List<Education>> getEducation() {
         try {
             List<Education> education = new ArrayList<Education>();
-            education = educationRepository.findAll();
+            education = educationRepository.findAllByCusSQL();
             return new ResponseEntity<>(education, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getEducationById(@PathVariable Integer id) {
         Optional<Education> education = educationRepository.findById(id);
         if (education.isPresent()) {
@@ -69,9 +69,8 @@ public class EducationController {
             oldEducation.setStartDate(education.getStartDate());
             oldEducation.setEndDate(education.getEndDate());
             oldEducation.setPlace(education.getPlace());
-            oldEducation.setInstitutionLogo(education.getInstitutionLogo());
-            oldEducation.setInstitutionSlogan(education.getInstitutionSlogan());
-            oldEducation.setLearning(education.getLearning());
+            oldEducation.setInstitutionLink(education.getInstitutionLink());
+            oldEducation.setInstitutionName(education.getInstitutionName());
             Education updatedEducation = educationRepository.save(oldEducation);
             return new ResponseEntity<Education>(updatedEducation, HttpStatus.CREATED);
         } else {

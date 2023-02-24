@@ -20,7 +20,6 @@ public class Education {
     private Date startDate;
     private Date endDate;
     private String place;
-    private String institutionLogo;
-    private String institutionSlogan;
-    private String learning;
+    private String institutionLink;
+    private String institutionName;
 }

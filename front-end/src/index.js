@@ -6,15 +6,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Education from './pages/Education';
 import Experience from './pages/Experience';
-import Reviews from './pages/Reviews';
 import Admin from './pages/AdminPages/Admin';
 import AdminLogin from './pages/AdminPages/AdminLogin';
 import AdminDash from './pages/AdminPages/AdminDash';
 import AdminSkill from './pages/AdminPages/AdminSkill';
-import AdminEducation from './pages/AdminPages/AdminAddEducation';
+import AdminAddEducation from './pages/AdminPages/AdminAddEducation';
 import AdminAddExperience from './pages/AdminPages/AdminAddExperience';
-import AdminReviews from './pages/AdminPages/AdminReviews';
+import AdminAddProject from './pages/AdminPages/AdminAddProject';
 import AdminShowAllExperiences from './pages/AdminPages/AdminShowAllExperiences';
+import AdminShowAllEducations from './pages/AdminPages/AdminShowAllEducations';
+import AdminShowAllProjects from './pages/AdminPages/AdminShowAllProjects';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,16 +24,23 @@ root.render(
       <Route exact path="study-background" element={<Education />} />
       <Route exact path="/" element={<Home />} />
       <Route exact path="work-history" element={<Experience />} />
-      <Route exact path="reviews" element={<Reviews />} />
+
       <Route exact path="adminLogin" element={<AdminLogin />} />
       <Route exact path="admin" element={<Admin />} >
         <Route exact path="dash" element={<AdminDash />} />
         <Route exact path="skills" element={<AdminSkill />} />
-        <Route exact path="education" element={<AdminEducation />} />
+
+        <Route exact path="education" element={<AdminShowAllEducations />} />
+        <Route exact path="education/new" element={<AdminAddEducation />} />
+        <Route exact path="education/edit/:id" element={<AdminAddEducation />} />
+
+        <Route exact path="project" element={<AdminShowAllProjects />} />
+        <Route exact path="project/new" element={<AdminAddProject />} />
+        <Route exact path="project/edit/:id" element={<AdminAddProject />} />
+
         <Route exact path="experience" element={<AdminShowAllExperiences />} />
         <Route exact path="experience/new" element={<AdminAddExperience />} />
         <Route exact path="experience/edit/:id" element={<AdminAddExperience />} />
-        <Route exact path="reviews" element={<AdminReviews />} />
       </Route>
     </Routes>
   </BrowserRouter>

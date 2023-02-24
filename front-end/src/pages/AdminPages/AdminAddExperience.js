@@ -28,8 +28,7 @@ function AdminExperience() {
     const [startdate, setStartdate] = useState("")
     const [enddate, setEnddate] = useState("")
     const [place, setPlace] = useState("")
-    const [logo, setLogo] = useState("")
-    const [slogan, setSlogan] = useState("")
+    const [link, setLink] = useState("")
 
     const getExperienceById = (id) => {
         experienceService.getExperienceDataById(id).then((res) => {
@@ -39,8 +38,7 @@ function AdminExperience() {
                 setStartdate(res.data.startDate);
                 setEnddate(res.data.endDate);
                 setPlace(res.data.place);
-                setLogo(res.data.companyLogo);
-                setSlogan(res.data.companySlogan);
+                setLink(res.data.companyLink);
                 renderTaskPerformed(res.data.taskPerformed)
             }
         })
@@ -60,8 +58,7 @@ function AdminExperience() {
         startDate: '',
         endDate: '',
         place: '',
-        companyLogo: '',
-        companySlogan: '',
+        companyLink: '',
         taskPerformed: ''
     })
     const [show, setShow] = useState(false); //toaster
@@ -72,8 +69,7 @@ function AdminExperience() {
         experience["startDate"] = new Date(startdate + "EST")
         experience["endDate"] = new Date(enddate + "EST")
         experience["place"] = place
-        experience["companyLogo"] = logo
-        experience["companySlogan"] = slogan
+        experience["companyLink"] = link
 
         let taskPerformedContent = taskeditor.getCurrentContent();  // take content from rich text editor
         let rawTaskPerformed = draftToHtml(convertToRaw(taskPerformedContent)) // convert to html for DB
@@ -182,18 +178,10 @@ function AdminExperience() {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm={2}>
-                                Company Logo (<i>optional</i>)
-                            </Form.Label>
-                            <Col sm={4}>
-                                <Form.Control name='logo' value={logo} type="file" onChange={(e) => setLogo(e.target.value)} placeholder="type here..." />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm={2}>
-                                Company Slogan (<i>optional</i>)
+                                Company Link (<i>optional</i>)
                             </Form.Label>
                             <Col sm={10}>
-                                <Form.Control name='slogan' value={slogan} type="text" onChange={(e) => setSlogan(e.target.value)} placeholder="type here..." />
+                                <Form.Control name='link' value={link} type="text" onChange={(e) => setLink(e.target.value)} placeholder="type here..." />
                             </Col>
                         </Form.Group>
                     </Row>

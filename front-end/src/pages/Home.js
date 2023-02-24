@@ -1,6 +1,5 @@
 import Navbar from '../utils/Navbar';
 import Contact from './Contact';
-import { Carousel } from 'react-bootstrap'
 import '../css/home.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -21,6 +20,7 @@ function Home() {
     const [github, setGithub] = useState("")
     const [youtube, setYouTube] = useState("")
     const [instagram, setInstagram] = useState("")
+    const [leetcode, setLeetcode] = useState("")
 
     function getHomeData() {
         HomeService.getHomeData().then((response) => {
@@ -30,6 +30,7 @@ function Home() {
             setGithub(response.data[0].github)
             setYouTube(response.data[0].youtube)
             setInstagram(response.data[0].instagram)
+            setLeetcode(response.data[0].leetcode)
         })
     }
 
@@ -44,7 +45,7 @@ function Home() {
             setTools(response.data[0].tools)
         })
     }
-    
+
     useEffect(() => {
         getHomeData();
         getSkills();
@@ -55,24 +56,11 @@ function Home() {
             <Navbar />
             <Container fluid>
                 <Row style={{ marginTop: '55px' }}>
-                    <Col xs={12} md={5} lg={6}>
-                        <Carousel fade>
-                            <Carousel.Item>
-                                <img className="d-block w-100" src={require('../img/1.jpg')} alt="First slide" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100" src={require('../img/2.jpg')} alt="Second slide" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100" src={require('../img/3.jpg')} alt="Third slide" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100" src={require('../img/4.jpg')} alt="Third slide" />
-                            </Carousel.Item>
-                        </Carousel>
+                    <Col xs={12} md={5} lg={4}>
+                        <img className="d-block w-100" src={require('../img/1.jpg')} alt="First slide" />
                     </Col>
-                    <Col xs={12} md={7} lg={6}>
-                        <div className='heading mb-3'>
+                    <Col xs={12} md={7} lg={8}>
+                        <div className='heading mt-3 mb-2'>
                             <h2>About Me...</h2>
                         </div>
                         <div className='intro mb-3' dangerouslySetInnerHTML={{ __html: aboutMe }} />
@@ -84,6 +72,7 @@ function Home() {
                             <a href={github} target="_blank"><BsGithub></BsGithub></a>
                             <a href={youtube} target="_blank"><BsYoutube></BsYoutube></a>
                             <a href={instagram} target="_blank"><BsInstagram></BsInstagram></a>
+                            <a href={leetcode} target="_blank">LeetCode</a>
                         </div>
                         <div className="skills mb-3">
                             <strong>Skills</strong>

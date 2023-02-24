@@ -39,6 +39,16 @@ public class ProjectController {
         }
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProjectById(@PathVariable Integer id) {
+        Optional<Project> project = projectRepository.findById(id);
+        if (project.isPresent()) {
+            return new ResponseEntity<>(project, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Project> addProject(@RequestBody Project project) {
         try {
@@ -54,9 +64,7 @@ public class ProjectController {
         Optional<Project> isProjectExist = projectRepository.findById(id);
         if (isProjectExist.isPresent()) {
             Project oldProject = isProjectExist.get();
-            oldProject.setProjectLogo(project.getProjectLogo());
             oldProject.setProjectName(project.getProjectName());
-            oldProject.setProjectSlogan(project.getProjectSlogan());
             oldProject.setProjectUrl(project.getProjectUrl());
             Project updatedProject = projectRepository.save(oldProject);
             return new ResponseEntity<Project>(updatedProject, HttpStatus.CREATED);

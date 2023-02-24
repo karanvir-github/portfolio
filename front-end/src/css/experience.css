@@ -1,6 +1,6 @@
 @media only screen and (min-width: 768px) {
     .taskArea {
-        padding: 50px 50px 0px 50px !important;
+        padding: 50px 35px 0px 35px !important;
     }
 }
 
@@ -10,58 +10,12 @@
 
 @media only screen and (min-width: 768px) {
     .projectsArea {
-        padding: 30px 50px 50px 50px !important;
+        padding: 0px 20px 20px 50px !important;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    .projectLogo .appimg {
-        width: 80%;
-        padding: 20px;
+@media only screen and (max-width: 1000px) {
+    .text-end {
+        text-align: left !important;
     }
-}
-
-@media only screen and (max-width: 700px) {
-    .projectLogo .appimg {
-        width: 80%;
-        padding: 20px;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-    .projectLogo .appimg {
-        width: 80%;
-        padding: 20px;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-    .projectLogo .appimg {
-        width: 80%;
-        padding: 20px;
-    }
-}
-
-@media only screen and (min-width:1700px) {
-    .cardCustomCss {
-        border-radius: 20px;
-        filter: blur(3px);
-    }
-}
-
-.gradient-hover-effect {
-    display: flex;
-    padding: 0.875em 2em;
-    font-family: inherit;
-    color: #fff;
-    text-decoration: none;
-    background: #000;
-    transition: background-color 1s;
-    place-content: center;
-}
-
-.gradient-hover-effect:hover,
-.gradient-hover-effect:focus {
-    background: linear-gradient(359deg, #a9c5ef, transparent) #ffffff;
-    filter: none !important;
 }

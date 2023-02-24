@@ -13,8 +13,8 @@ class ExperienceService {
     updateExperienceData(data, id) {
         return http.put("/experience/" + id, data);
     }
-    deleteExperienceData() {
-        return http.delete("/experience");
+    deleteExperienceData(id) {
+        return http.delete("/experience/" + id);
     }
 }
 export default new ExperienceService();

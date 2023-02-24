@@ -2,7 +2,6 @@ import { Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function AdminNav() {
     return (
@@ -20,13 +19,13 @@ function AdminNav() {
                                 <Nav.Link href="#skills">Skills</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/admin/experience">
-                                <Nav.Link href="/education">Experience</Nav.Link>
+                                <Nav.Link href="#education">Experience</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to="/admin/project">
+                                <Nav.Link href="/project">Projects</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/admin/education">
-                                <Nav.Link href="/education">Education</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to="/admin/reviews">
-                                <Nav.Link href="/education">Reviews</Nav.Link>
+                                <Nav.Link href="#education">Education</Nav.Link>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>

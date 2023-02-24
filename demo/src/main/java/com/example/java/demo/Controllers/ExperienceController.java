@@ -31,7 +31,7 @@ public class ExperienceController {
     public ResponseEntity<List<Experience>> getExperience() {
         try {
             List<Experience> experiences = new ArrayList<Experience>();
-            experiences = experienceRepository.findAll();
+            experiences = experienceRepository.findAllByCusSQL();
             return new ResponseEntity<>(experiences, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -59,23 +59,25 @@ public class ExperienceController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editExperience(@PathVariable Integer id, @RequestBody Experience experience) {
+    public ResponseEntity<Experience> editExperience(@PathVariable Integer id, @RequestBody Experience experience) {
         Optional<Experience> isExperienceExist = experienceRepository.findById(id);
         if (isExperienceExist.isPresent()) {
-            Experience oldExperience = isExperienceExist.get();
-            oldExperience.setJobTitle(experience.getJobTitle());
-            oldExperience.setCompanyName(experience.getCompanyName());
-            oldExperience.setStartDate(experience.getStartDate());
-            oldExperience.setEndDate(experience.getEndDate());
-            oldExperience.setPlace(experience.getPlace());
-            oldExperience.setCompanyLogo(experience.getCompanyLogo());
-            oldExperience.setCompanySlogan(experience.getCompanySlogan());
-            oldExperience.setTaskPerformed(experience.getTaskPerformed());
-            Experience updatedExperience = experienceRepository.save(oldExperience);
-            return new ResponseEntity<Experience>(updatedExperience, HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            try {
+                Experience oldExperience = isExperienceExist.get();
+                oldExperience.setJobTitle(experience.getJobTitle());
+                oldExperience.setCompanyName(experience.getCompanyName());
+                oldExperience.setStartDate(experience.getStartDate());
+                oldExperience.setEndDate(experience.getEndDate());
+                oldExperience.setPlace(experience.getPlace());
+                oldExperience.setCompanyLink(experience.getCompanyLink());
+                oldExperience.setTaskPerformed(experience.getTaskPerformed());
+                Experience updatedExperience = experienceRepository.save(oldExperience);
+                return new ResponseEntity<Experience>(updatedExperience, HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }
+        return null;
     }
 
     @DeleteMapping("/{id}")

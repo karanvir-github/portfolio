@@ -13,8 +13,6 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String projectLogo;
     private String projectName;
-    private String projectSlogan;
     private String projectUrl;
 }

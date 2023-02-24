@@ -6,3 +6,25 @@
     color: #000 !important;
     text-decoration: none !important;
 }
+
+@media only screen and (max-width: 1000px) {
+    .text-end {
+        text-align: left !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .educationArea {
+        padding: 50px 50px 0px 50px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .educationArea {
+        padding: 0px 10px !important;
+    }
+}
+
+.educationArea {
+    padding-top: 100px !important;
+}
